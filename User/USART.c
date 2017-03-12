@@ -199,3 +199,12 @@ void UART_Put_Inf(char *inf,unsigned long dat)
 	UART_Put_Num(dat);
 	UART_Send_Str("\n");  
 }
+
+unsigned char receive_char(void)
+{
+  unsigned char i;
+  i=USART_ReceiveData(USART2); //接受一个字节
+  while(USART_GetFlagStatus(USART2, USART_FLAG_RXNE) == RESET); //等待接收完毕
+  USART_ClearFlag(USART2,USART_FLAG_RXNE);
+  return i;
+}

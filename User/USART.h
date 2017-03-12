@@ -16,4 +16,5 @@ void u32tostr(unsigned long dat,char *str);
 unsigned long strtou32(char *str) ;
 void USART2_Puts( char * str);
 void USART2_Putc(unsigned char c);
+unsigned char receive_char(void);
 #endif
